@@ -1,0 +1,24 @@
+{
+  "confirmed_data": {
+    "nombre": "Bella Machina",
+    "nicho": "Taller mecánico",
+    "ciudad": "Pinto",
+    "direccion": "Calle Turín, 25, Parla",
+    "google_maps": "https://www.google.com/maps/search/?api=1&query=40.2360941,-3.7535534",
+    "horario": "Lunes a Sábado: 10:00-14:00 y 16:30-20:00",
+    "provincia": "Madrid"
+  },
+  "data_not_found": {
+    "telefono": "[pending confirmation]",
+    "email": "[pending confirmation]",
+    "servicios_especificos": "[pending confirmation]",
+    "años_experiencia": "[pending confirmation]",
+    "fotos_reales": "No disponibles"
+  },
+  "colores_sugeridos": {
+    "primario": "#1a1a1a",
+    "secundario": "#d4af37",
+    "fondo": "#0a0a0a",
+    "texto": "#e5e5e5"
+  }
+}

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella Machina | Taller Mecánico en Pinto</title>
+    <link rel="stylesheet" href="motion.css">
+    <style>
+        :root {
+            --mk-primario: #d4af37;
+            --mk-secundario: #1a1a1a;
+            --mk-fondo: #0a0a0a;
+            --mk-texto: #e5e5e5;
+            
+            --font-display: 'Arial Black', Arial, sans-serif;
+            --font-text: Arial, Helvetica, sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-text);
+            background: var(--mk-fondo);
+            color: var(--mk-texto);
+            overflow-x: hidden;
+        }
+        
+        .mk-zshot {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 60px 20px;
+        }
+        
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            opacity: 0.95;
+        }
+        
+        .hero-texture {
+            position: absolute;
+            inset: 0;
+            background: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.02) 2px, rgba(255,255,255,0.02) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.02) 2px, rgba(255,255,255,0.02) 4px);
+            opacity: 0.3;
+        }
+        
+        h1 {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 6vw, 72px);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            color: var(--mk-primario);
+        }
+        
+        .tagline {
+            font-size: clamp(16px, 2.5vw, 24px);
+            line-height: 1.5;
+            color: var(--mk-texto);
+            margin-bottom: 32px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: var(--mk-primario);
+            color: #0a0a0a;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s ease-out;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(212, 175, 55, 0.5);
+        }
+        
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .servicio-card {
+            background: rgba(26, 26, 26, 0.6);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s ease-out;
+        }
+        
+        .servicio-card:hover {
+            border-color: var(--mk-primario);
+            transform: translateY(-4px);
+        }
+        
+        .servicio-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        
+        .servicio-card h3 {
+            font-size: 20px;
+            color: var(--mk-primario);
+            margin-bottom: 12px;
+        }
+        
+        .servicio-card p {
+            font-size: 15px;
+            line-height: 1.6;
+            opacity: 0.85;
+        }
+        
+        .confianza-section {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .confianza-section h2 {
+            font-size: clamp(28px, 4vw, 48px);
+            color: var(--mk-primario);
+            margin-bottom: 24px;
+        }
+        
+        .confianza-section p {
+            font-size: 18px;
+            line-height: 1.7;
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+        
+        .contacto-section {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .contacto-section h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            color: var(--mk-primario);
+            margin-bottom: 32px;
+        }
+        
+        .info-box {
+            background: rgba(26, 26, 26, 0.6);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .info-box h3 {
+            font-size: 18px;
+            color: var(--mk-primario);
+            margin-bottom: 12px;
+        }
+        
+        .info-box p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .cta-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 32px;
+        }
+        
+        .cta-secondary {
+            display: inline-block;
+            padding: 14px 32px;
+            background: transparent;
+            color: var(--mk-primario);
+            border: 2px solid var(--mk-primario);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease-out;
+        }
+        
+        .cta-secondary:hover {
+            background: var(--mk-primario);
+            color: #0a0a0a;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            font-size: 13px;
+            opacity: 0.6;
+        }
+        
+        @media (max-width: 768px) {
+            .servicios-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mk-film" data-mk-scrolly data-mk-shots="4" style="--mk-nshots:4">
+        <div class="mk-film-stage mk-tunnel">
+            
+            <!-- Beat 1: Hero -->
+            <div class="mk-zshot" style="--zi:0">
+                <div class="mk-zdepth hero-bg" style="--z:-200"></div>
+                <div class="mk-zdepth hero-texture" style="--z:-150"></div>
+                <div class="mk-zdepth hero-content" style="--z:100">
+                    <h1 class="mk-split">Bella Machina</h1>
+                    <p class="tagline">Tu taller de confianza en Pinto</p>
+                    <a href="#contacto" class="cta-button mk-pulse">Contacta con nosotros</a>
+                </div>
+            </div>
+            
+            <!-- Beat 2: Servicios -->
+            <div class="mk-zshot" style="--zi:1; background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);">
+                <div style="width: 100%; max-width: 1200px;">
+                    <h2 style="text-align: center; font-size: clamp(28px, 4vw, 48px); color: var(--mk-primario); margin-bottom: 48px;">Nuestros Servicios</h2>
+                    <div class="servicios-grid">
+                        <div class="servicio-card mk-reveal">
+                            <div class="servicio-icon">🔧</div>
+                            <h3>Mecánica General</h3>
+                            <p>Reparación y mantenimiento completo de tu vehículo</p>
+                        </div>
+                        <div class="servicio-card mk-reveal">
+                            <div class="servicio-icon">⚙️</div>
+                            <h3>Revisiones</h3>
+                            <p>Inspecciones periódicas y pre-ITV</p>
+                        </div>
+                        <div class="servicio-card mk-reveal">
+                            <div class="servicio-icon">🛠️</div>
+                            <h3>Diagnosis</h3>
+                            <p>Equipamiento profesional de última generación</p>
+                        </div>
+                        <div class="servicio-card mk-reveal">
+                            <div class="servicio-icon">🚗</div>
+                            <h3>Mantenimiento</h3>
+                            <p>Cambio de aceite, filtros y neumáticos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Beat 3: Confianza -->
+            <div class="mk-zshot" style="--zi:2; background: #0a0a0a;">
+                <div class="confianza-section mk-reveal">
+                    <h2>Experiencia y Profesionalidad</h2>
+                    <p>En Bella Machina trabajamos con dedicación y transparencia. Tu vehículo está en las mejores manos.</p>
+                    <a href="#contacto" class="cta-button mk-pulse">Solicita presupuesto sin compromiso</a>
+                </div>
+            </div>
+            
+            <!-- Beat 4: Contacto -->
+            <div class="mk-zshot" id="contacto" style="--zi:3; background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);">
+                <div class="contacto-section">
+                    <h2>Visítanos</h2>
+                    
+                    <div class="info-box mk-reveal">
+                        <h3>📍 Ubicación</h3>
+                        <p>Calle Turín, 25<br>Parla, Madrid</p>
+                    </div>
+                    
+                    <div class="info-box mk-reveal">
+                        <h3>🕐 Horario</h3>
+                        <p>Lunes a Sábado<br>10:00 - 14:00 | 16:30 - 20:00</p>
+                    </div>
+                    
+                    <div class="cta-group">
+                        <a href="https://www.google.com/maps/search/?api=1&query=40.2360941,-3.7535534" target="_blank" class="cta-button">Ver en Google Maps</a>
+                        <a href="https://wa.me/34678612969?text=Hola%2C%20quisiera%20información%20sobre%20Bella%20Machina" target="_blank" class="cta-secondary">Contactar por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>Demo orientativa preparada por Disflim con información pública disponible.</p>
+    </div>
+    
+    <script src="motion.js"></script>
+</body>
+</html>
